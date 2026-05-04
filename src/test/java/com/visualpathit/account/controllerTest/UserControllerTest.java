@@ -35,10 +35,7 @@ public class UserControllerTest {
 	public void setup(){
 		MockitoAnnotations.initMocks(this);
 		
-		/*InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/views/");
-        viewResolver.setSuffix(".jsp");
-		*/
+		
 		mockMvc = MockMvcBuilders.standaloneSetup(controller)
 				  .setViewResolvers(new StandaloneMvcTestViewResolver()).build();
 	}
@@ -60,21 +57,7 @@ public class UserControllerTest {
         .andExpect(forwardedUrl("registration"));
 		
 	}
-	/*@Test
-	public void registrationTestforPostValueHappyFlow() throws Exception{
-		String description =new String("Error String");
-		UserValidator userValidator;
-		BindingResult bindingResult;
-		when(userValidator.validate(new User(),bindingResult))
-		.thenThrow(bindingResult.hasErrors());
-		mockMvc.perform(post("/registration").contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("userForm","userForm"))
-		
-        .andExpect(status().isOk());
-        //.andExpect(view().name("redirect:/welcome"))
-        //.andExpect(forwardedUrl("redirect:/welcome"));
-		
-	}*/
+	
 	@Test
     public void loginTestHappyFlow() throws Exception{
     mockMvc.perform(get("/"))
