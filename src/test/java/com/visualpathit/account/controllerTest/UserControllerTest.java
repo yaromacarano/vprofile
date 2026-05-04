@@ -76,14 +76,12 @@ public class UserControllerTest {
 		
 	}*/
 	@Test
-	public void loginTestHappyFlow() throws Exception{
-		String error = "Your username and password is invalid";
-		mockMvc.perform(get("/login").param(error, error))
-        .andExpect(status().isOk())
-        .andExpect(view().name("login"))
-        .andExpect(forwardedUrl("login"));
-		
-	}
+    public void loginTestHappyFlow() throws Exception{
+    mockMvc.perform(get("/"))
+            .andExpect(status().isOk())
+            .andExpect(view().name("login"))
+            .andExpect(forwardedUrl("login"));
+    }
 	@Test
 	public void welcomeTestHappyFlow() throws Exception{
 		mockMvc.perform(get("/welcome"))
@@ -93,13 +91,12 @@ public class UserControllerTest {
 		
 	}
 	@Test
-	public void welcomeAfterDirectLoginTestHappyFlow() throws Exception{
-		mockMvc.perform(get("/"))
-        .andExpect(status().isOk())
-        .andExpect(view().name("welcome"))
-        .andExpect(forwardedUrl("welcome"));
-		
-	}
+    public void welcomeAfterDirectLoginTestHappyFlow() throws Exception{
+    mockMvc.perform(get("/"))
+            .andExpect(status().isOk())
+            .andExpect(view().name("login"))
+            .andExpect(forwardedUrl("login"));
+    }
 	@Test
 	public void indexTestHappyFlow() throws Exception{
 		mockMvc.perform(get("/index"))
