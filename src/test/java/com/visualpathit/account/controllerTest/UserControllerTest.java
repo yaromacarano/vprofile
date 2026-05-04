@@ -42,7 +42,6 @@ public class UserControllerTest {
 	
 	@Test
 	public void registrationTestforHappyFlow() throws Exception{
-		User user = new User();
 		mockMvc.perform(get("/registration"))
         .andExpect(status().isOk())
         .andExpect(view().name("registration"))
